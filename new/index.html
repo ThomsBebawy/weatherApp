@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <input type="text" id="zip">
+    <button id="generate" >go</button>
+</body>
+<script>
+    /* WEB API WITH FETCH DEMO--  */
+  let baseURL = 'api.openweathermap.org/data/2.5/weather?zip='
+  let apiKey = ',us&appid=3d0e0e115be0c3da1ca7f76fec5d7987';
+  
+
+  document.getElementById('generate').addEventListener('click', performAction);
+
+  function performAction(e){  
+    const newZip =  document.getElementById('zip').value;
+    // getWeather(baseURL,newAnimal, apiKey)
+  }
+
+
+  const getWeather = async (baseURL, newZip, apiKey)=>{
+  // 1.
+    const res = await fetch(baseURL+newZip+apiKey)
+    try {
+
+      const data = await res.json();
+      console.log(data)
+    }  catch(error) {
+      // appropriately handle the error
+      console.log("error", error);
+    }
+  }
+</script>
+</html>
